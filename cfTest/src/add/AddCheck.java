@@ -57,8 +57,12 @@ public class AddCheck extends HttpServlet {
 		int user_id=(int)session.getAttribute("User_id");
 
 		CommonAddData data = new CommonAddData(day, route_no, transit_no, from_st, to_st, price, user_id);
-
 		CommonDB.addDB(data);
+
+		if (!(CommonDB.checkTransitData(transit_no, from_st, to_st, price, user_id))) {
+			 CommonDB.addTransitData(transit_no, from_st, to_st, price, user_id);
+			 System.out.println("交通手段、登録したよー！");
+		}
 
 
 		//System.out.println("テーブルを登録しました.");

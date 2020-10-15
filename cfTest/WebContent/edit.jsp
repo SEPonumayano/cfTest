@@ -12,8 +12,9 @@
 	String to_st = (String) request.getParameter("to_st") == null ? "" : request.getParameter("to_st");
 	String price = (String) request.getParameter("price") == null ? "" : request.getParameter("price");
 
-	String menulist = (String) request.getParameter("menulist") == null ? ""
-			: (String) request.getParameter("menulist");
+	String menulist ="2";
+	//String menulist = (String) request.getParameter("menulist") == null ? ""
+			//: //(String) request.getParameter("menulist");
 	String errmsg = (String) request.getAttribute("errmsg") == null ? ""
 			: (String) request.getParameter("errmsg");
 

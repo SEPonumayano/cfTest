@@ -53,7 +53,7 @@
 				<td><%=rs.getString("from_st")%><input type="hidden" name="from_st" value="<%=rs.getString("from_st")%>"></td>
 				<td><%=rs.getString("to_st")%><input type="hidden" name="to_st" value="<%=rs.getString("to_st")%>"></td>
 				<td><%=rs.getString("price")%><input type="hidden" name="price" value="<%=rs.getString("price")%>"></td>
-				<td><input type="submit" value="編集" formaction="./.jsp"><input type="submit" value="削除" formaction="Delete.jsp"></td>
+				<td><input type="submit" value="編集" formaction="edit.jsp"><input type="submit" value="削除" formaction="Delete.jsp"></td>
 			</tr>
 			</form>
 			<% }%>

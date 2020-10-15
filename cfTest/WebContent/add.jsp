@@ -30,14 +30,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="add.css">
+<link rel="stylesheet" href="css/add.css">
 <title>交通費登録システム：登録</title>
 </head>
 <body>
-交通費登録システム：登録画面
+<h2>交通費登録システム：登録</h2>
 
 	<form class="addlist" method="post">
 
+<div class="err">
+			<%
+				if (errmsg != null) {
+			%>
+			<%=errmsg%>
+			<%
+				}
+			%>
+			</div>
 		<dl>
 			<dt>日付：</dt>
 			<dd>
@@ -110,14 +119,14 @@
 				<%
 					}
 				%>
-			</dd>
 
-			<dt>到着駅：</dt>
-			<dd>
+
+			―到着駅：
+
 				<%
 					if (to_st != null) {
 				%>
-				<input type="text" name="to_st" value="<%=to_st%>">
+				<input type="text" name="to_st" value="<%=to_st%>" >
 				<%
 					} else {
 				%>
@@ -142,17 +151,7 @@
 			</dd>
 
 
-		<dt>&nbsp;</dt>
-			<dd><%
-				if (errmsg != null) {
-			%>
-			<%=errmsg%><br />
-			<%
-				}else{
-			%>
-			&nbsp;
-			<%
-			}%></dd>
+<br>
 
 <dt>&nbsp;</dt>
 <dd>

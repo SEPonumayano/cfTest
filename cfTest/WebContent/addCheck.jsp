@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.text.NumberFormat"%>
 <%
 /** 登録か編集かの判断値**/
 String menulist=(String)request.getAttribute("menulist");
@@ -20,6 +20,8 @@ String to_st=(String)request.getAttribute("to_st");
 //金額
 String price=(String)request.getAttribute("price");
 
+int Price=Integer.parseInt(price);
+NumberFormat nf = NumberFormat.getNumberInstance();
 %>
 <!DOCTYPE html>
 <html>
@@ -29,7 +31,7 @@ String price=(String)request.getAttribute("price");
 <title>登録確認</title>
 </head>
 <body>
-交通費登録システム：登録
+<p class="title">交通費登録システム：登録</p>
 
 <form class="addlist"  method="post">
 
@@ -44,10 +46,13 @@ String price=(String)request.getAttribute("price");
 <dd><%=transit_name%></dd>
 
 <dt>出発駅：</dt>
-<dd><%=from_st%>&nbsp;―到着駅：<%=to_st%></dd>
+<dd>
+<%=from_st%>&emsp;&emsp;&emsp;―到着駅：<%=to_st%>
+</dd>
+
 
 <dt>金額：</dt>
-<dd><%=price%>円</dd>
+<dd><%=nf.format(Price)%>円</dd>
 
 
 <!-- hidden用 -->
@@ -58,11 +63,11 @@ String price=(String)request.getAttribute("price");
 <input type="hidden" name="from_st" value="<%=from_st%>">
 <input type="hidden" name="to_st" value="<%=to_st%>">
 <input type="hidden" name="price" value="<%=price%>">
-
+<br/>
 <dt>&nbsp;</dt>
 <dd>
 <input class="transitionbt" type="submit" formaction="AddCheck" value="登録">
-<input class="transitionbt" type="submit" formaction="AddTest" value="戻る">
+<input class="transitionbt" type="submit" formaction="Add" formmethod="get" value="戻る">
 </dd>
 </dl>
 </form>
