@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.text.NumberFormat"%>
+    pageEncoding="UTF-8" import="java.text.NumberFormat" %>
 <%
 /** 登録か編集かの判断値**/
 String menulist=(String)request.getAttribute("menulist");
@@ -20,7 +20,13 @@ String to_st=(String)request.getAttribute("to_st");
 //金額
 String price=(String)request.getAttribute("price");
 
-int Price=Integer.parseInt(price);
+/** 金額 処理変更**/
+int Price=0;
+if(price.isEmpty()){
+price="0";
+}else{
+	Price=Integer.parseInt(price);
+}
 NumberFormat nf = NumberFormat.getNumberInstance();
 %>
 <!DOCTYPE html>
@@ -50,9 +56,16 @@ NumberFormat nf = NumberFormat.getNumberInstance();
 <%=from_st%>&emsp;&emsp;&emsp;―到着駅：<%=to_st%>
 </dd>
 
-
+<!-- 金額処理変更 -->
 <dt>金額：</dt>
-<dd><%=nf.format(Price)%>円</dd>
+<dd><%if(Price==0){%>
+<%=price %>
+<%}else{ %>
+<%=nf.format(Price)%>
+<%
+}
+%>
+円</dd>
 
 
 <!-- hidden用 -->

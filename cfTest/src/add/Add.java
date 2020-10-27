@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import common.CommonAddData;
 import common.CommonDB;
@@ -106,8 +105,10 @@ public class Add extends HttpServlet {
 
 		//ユーザーID
 		/** ユーザーID取得 **/
-		HttpSession session = request.getSession();
-		int user_id=(int)session.getAttribute("User_id");
+		///HttpSession session = request.getSession();
+		//int user_id=(int)session.getAttribute("User_id");
+		int user_id=1;
+
 
 		//エラーチェック
 		CommonAddData data = new CommonAddData(day, route_no, transit_no, from_st, to_st, price, user_id);
